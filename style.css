@@ -1,0 +1,43 @@
+* {
+    padding: 5px;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+#body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+}
+#input{
+    border: 1px solid black;
+    height: 30px;
+    width: 100%;  
+    text-align: right;
+    background-color: azure;         
+}
+.key{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.key div{
+    border: 1px solid black;
+    width: 10px;
+    height: 10px;
+}
+#delete {
+    width: 30px;
+}
+#reset {
+     width: 50px;
+}
+
+#calc  {
+     width: 50px;
+}
