@@ -60,18 +60,21 @@ del.addEventListener("click",()=>{
 });
 
 calc.addEventListener("click",()=> {
-    if (operator=="+"){
+    console.log(num1);
+    console.log(num2);
+    console.log(operador);
+    if (operador=="+"){
         console.log("operador +");
-        body.textContent=+num1+num2;
+        body.textContent=+Number(num1)+Number(num2);
     } else if (operador=="-"){
         console.log("operador -");
-        body.textContent=+num1-num2;
+        body.textContent=+Number(num1)-Number(num2);
     } else if (operador=="x"){
         console.log("operador x");
-        body.textContent=+num1*num2;
+        body.textContent=+Number(num1)*Number(num2);
     } else if (body.textContent=="/"){
         console.log("operador /");
-        body.textContent=+num1/num2;
+        body.textContent=+Number(num1)/Number(num2);
     };
     num1=body.textContent;
     
@@ -89,8 +92,11 @@ function digitInput(a) {
 function operatorInput(a) {
     if (!isNaN(body.textContent)&& body.textContent!=""){
     num1=body.textContent;
-    operator=a;
-    body.textContent=operator;
+    operador=a;
+    body.textContent=operador;
+    console.log(a);
+    console.log(operador);
+    
     }
     let temp=body.textContent;
     if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
