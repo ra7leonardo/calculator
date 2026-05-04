@@ -19,84 +19,82 @@ let del=document.querySelector("#delete");
 let num1=Number;
 let num2=Number;
 let operador=Text;
-
 body.textContent="";
+
 reset.addEventListener("click",()=>{
     body.textContent="";
+    num1=0;
+    num2=0;
 }
 );
-one.addEventListener("click",()=>{
-    let temp=body.textContent[body.textContent.length-1];
-    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
-    body.textContent=body.textContent.slice(0,body.textContent.length-1);
-    }
-    body.textContent=body.textContent+"1";
-    num2=+body.textContent;
-});
-two.addEventListener("click",()=>{
-    body.textContent=body.textContent+"2";
-});
-three.addEventListener("click",()=>{
-    body.textContent=body.textContent+"3";
-});
-four.addEventListener("click",()=>{
-    body.textContent=body.textContent+"4";
-});
-five.addEventListener("click",()=>{
-    body.textContent=body.textContent+"5";
-});
-six.addEventListener("click",()=>{
-    body.textContent=body.textContent+"6";
-});
-seven.addEventListener("click",()=>{
-    body.textContent=body.textContent+"7";
-});
-eight.addEventListener("click",()=>{
-    body.textContent=body.textContent+"8";
-});
-nine.addEventListener("click",()=>{
-    body.textContent=body.textContent+"9";
-});
-zero.addEventListener("click",()=>{
-    body.textContent=body.textContent+"0";
-});
-sum.addEventListener("click",()=>{
-    if (!isNaN(body.textContent)&& body.textContent!=""){
-    num1=body.textContent;
-    operator="+";
-    body.textContent=operator;
-    }
-    let temp=body.textContent[body.textContent.length-1];
-    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
-    body.textContent=body.textContent.slice(0,body.textContent.length-1);
-    }
-    body.textContent=body.textContent+"+";
-});
-div.addEventListener("click",()=>{
-    let temp=body.textContent[body.textContent.length-1];
-    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
-    body.textContent=body.textContent.slice(0,body.textContent.length-1);
-    }
-    body.textContent=body.textContent+"/";
-});
-prod.addEventListener("click",()=>{
-    let temp=body.textContent[body.textContent.length-1];
-    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
-    body.textContent=body.textContent.slice(0,body.textContent.length-1);
-    }
-    body.textContent=body.textContent+"x";
-});
-minus.addEventListener("click",()=>{
-    let temp=body.textContent[body.textContent.length-1];
-    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
-    body.textContent=body.textContent.slice(0,body.textContent.length-1);
-    }
-    body.textContent=body.textContent+"-";
-});
+one.addEventListener("click",()=> digitInput(1));
+
+two.addEventListener("click",()=> digitInput(2));
+
+three.addEventListener("click",()=> digitInput(3));
+
+four.addEventListener("click",()=> digitInput(4));
+
+five.addEventListener("click",()=> digitInput(5));
+
+six.addEventListener("click",()=> digitInput(6));
+
+seven.addEventListener("click",()=> digitInput(7));
+
+eight.addEventListener("click",()=> digitInput(8));
+
+nine.addEventListener("click",()=> digitInput(9));
+
+zero.addEventListener("click",()=> digitInput(0));
+
+sum.addEventListener("click",()=> operatorInput("+"));
+
+div.addEventListener("click",()=> operatorInput("/"));
+
+prod.addEventListener("click",()=> operatorInput("x"));
+
+minus.addEventListener("click",()=> operatorInput("-"));
+
 del.addEventListener("click",()=>{
     body.textContent=body.textContent.slice(0,body.textContent.length-1);
 });
 
-calc.addEventListener("click",()=>{
-    body.textContent
+calc.addEventListener("click",()=> {
+    if (operator=="+"){
+        console.log("operador +");
+        body.textContent=+num1+num2;
+    } else if (operador=="-"){
+        console.log("operador -");
+        body.textContent=+num1-num2;
+    } else if (operador=="x"){
+        console.log("operador x");
+        body.textContent=+num1*num2;
+    } else if (body.textContent=="/"){
+        console.log("operador /");
+        body.textContent=+num1/num2;
+    };
+    num1=body.textContent;
+    
 });
+
+function digitInput(a) {
+    let temp=body.textContent[body.textContent.length-1];
+    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
+    body.textContent=body.textContent.slice(0,body.textContent.length-1);
+    }
+    body.textContent=body.textContent+a;
+    num2=+body.textContent;
+}
+
+function operatorInput(a) {
+    if (!isNaN(body.textContent)&& body.textContent!=""){
+    num1=body.textContent;
+    operator=a;
+    body.textContent=operator;
+    }
+    let temp=body.textContent;
+    if (temp=="-"||temp=="+"||temp=="/"||temp=="x"){
+    body.textContent=body.textContent.slice(0,body.textContent.length-1);
+    }
+    body.textContent=body.textContent+a;
+}
