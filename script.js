@@ -64,16 +64,12 @@ calc.addEventListener("click",()=> {
     console.log(num2);
     console.log(operador);
     if (operador=="+"){
-        console.log("operador +");
         body.textContent=+Number(num1)+Number(num2);
     } else if (operador=="-"){
-        console.log("operador -");
         body.textContent=+Number(num1)-Number(num2);
     } else if (operador=="x"){
-        console.log("operador x");
         body.textContent=+Number(num1)*Number(num2);
-    } else if (body.textContent=="/"){
-        console.log("operador /");
+    } else if (operador=="/"){
         body.textContent=+Number(num1)/Number(num2);
     };
     num1=body.textContent;
@@ -94,8 +90,6 @@ function operatorInput(a) {
     num1=body.textContent;
     operador=a;
     body.textContent=operador;
-    console.log(a);
-    console.log(operador);
     
     }
     let temp=body.textContent;
